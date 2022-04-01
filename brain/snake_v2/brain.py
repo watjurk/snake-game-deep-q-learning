@@ -12,7 +12,7 @@ from tensorflow import keras
 
 
 class Brain(q_learning.Brain):
-  def __init__(self):
+  def __init__(self): 
     self.model_path = path.join(path.dirname(__file__), 'model')
     self.last_observations = None
 
@@ -27,15 +27,15 @@ class Brain(q_learning.Brain):
 
     self.model.add(keras.layers.InputLayer(input_shape=(50, 50, 3)))
 
-    self.model.add(keras.layers.Convolution2D(32, kernel_size=(8, 8), strides=(4, 4), activation='relu'))
-    self.model.add(keras.layers.MaxPooling2D(pool_size=(4, 4), strides=(2, 2), padding='same'))
+    self.model.add(keras.layers.Convolution2D(32, kernel_size=(8, 8), activation='relu'))
+    self.model.add(keras.layers.MaxPooling2D(pool_size=(4, 4)))
 
-    self.model.add(keras.layers.Convolution2D(64, kernel_size=(4, 4), strides=(2, 2), activation='relu'))
-    self.model.add(keras.layers.MaxPooling2D(pool_size=(2, 2), strides=(1, 1), padding='same'))
+    self.model.add(keras.layers.Convolution2D(16, kernel_size=(4, 4), activation='relu'))
+    self.model.add(keras.layers.MaxPooling2D(pool_size=(2, 2)))
 
     self.model.add(keras.layers.Flatten())
 
-    self.model.add(keras.layers.Dense(256, activation='relu'))
+    self.model.add(keras.layers.Dense(128, activation='relu'))
 
     self.model.add(keras.layers.Dense(4, activation='softmax'))
 
