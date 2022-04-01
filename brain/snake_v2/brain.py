@@ -1,6 +1,8 @@
-"""
-Basic brain, without "frame stacking"
-"""
+'''
+Basic brain
+differences with previous:
+- add frame stating
+'''
 
 from os import path
 
@@ -12,6 +14,7 @@ from tensorflow import keras
 class Brain(q_learning.Brain):
   def __init__(self):
     self.model_path = path.join(path.dirname(__file__), 'model')
+    self.last_observations = None
 
   def save_model(self):
     self.model.save(self.model_path)
@@ -22,16 +25,14 @@ class Brain(q_learning.Brain):
   def build_model(self, learning_rate):
     self.model = keras.Sequential()
 
-    self.model.add(keras.layers.InputLayer(input_shape=(38, 38, 3)))
+    self.model.add(keras.layers.InputLayer(input_shape=(50, 50, 3)))
 
     self.model.add(keras.layers.Convolution2D(32, kernel_size=(8, 8), strides=(4, 4)))
     self.model.add(keras.layers.Activation('relu'))
-
     self.model.add(keras.layers.MaxPooling2D(pool_size=(4, 4), strides=(2, 2), padding='same'))
 
     self.model.add(keras.layers.Convolution2D(64, kernel_size=(4, 4), strides=(2, 2)))
     self.model.add(keras.layers.Activation('relu'))
-
     self.model.add(keras.layers.MaxPooling2D(pool_size=(2, 2), strides=(1, 1), padding='same'))
 
     self.model.add(keras.layers.Flatten())
@@ -45,9 +46,18 @@ class Brain(q_learning.Brain):
 
   def prepare_observation(self, observation):
     assert(observation.shape == (150, 150, 3))
-    observation = cv2.resize(observation, dsize=(38, 38), interpolation=cv2.INTER_AREA)
+
+    # if self.last_observations is not None:
+    #   alpha = 0.6
+    #   beta = (1.0 - alpha)
+    #   observation = cv2.addWeighted(observation, alpha, self.last_observations, beta, 0)
+    # self.last_observations = observation
+
+    observation = cv2.resize(observation, dsize=(50, 50), interpolation=cv2.INTER_AREA)
+    # self.ui.video.update_stream('brain', observation)
+    
     observation = observation / 255.0
     return observation
 
   def reset_prepare(self):
-    pass
+    self.last_observations = None

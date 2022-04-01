@@ -14,18 +14,17 @@ from ml_tools.ui import UI
 ui = UI()
 ui.connect("./public")
 
-from brain.snake_v0.brain import Brain
+from brain.snake_v2.brain import Brain
 
 brain = Brain()
+brain.load_model()
 
-action_space = [0, 1, 2, 3]
 agent = q_learning.Agent(
-  action_space=action_space,
+  action_space=[0, 1, 2, 3],
 
   brain=brain,
 
   epsilon=1,
-  epsilon_min=0.0001,
   epsilon_decay=0.00002,
 
   discount_factor=0.97,
@@ -45,9 +44,8 @@ env = gym.make('snake-v0')
 
 raw_observation = env.reset()
 agent.reset(raw_observation)
-
 while True:
-  ui.video.update_stream("test", raw_observation)
+  ui.video.update_stream("raw", raw_observation)
 
   speed = int(ui.control.get_value('speed') or 100)
   if speed != 100:
@@ -61,5 +59,3 @@ while True:
   if done:
     raw_observation = env.reset()
     agent.reset(raw_observation)
-
-
