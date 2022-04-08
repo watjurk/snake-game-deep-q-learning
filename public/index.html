@@ -9,6 +9,8 @@
     
     <div>
       <input type="range" min="1" max="100" value="50" id="speed" />
+      <button onclick="mlTools.control.setValue(`training`, false)">Disable training</button>
+      <button onclick="mlTools.control.setValue(`training`, true)">Enable training</button>
     </div>
 
     <script src="/mlTools/index.js"></script>
