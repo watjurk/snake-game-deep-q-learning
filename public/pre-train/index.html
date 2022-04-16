@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <img src="/mlTools/video/stream?name=raw" />
+
+    <script src="/mlTools/index.js"></script>
+    <button onclick="mlTools.control.setValue(`pause`, true)">Pause</button>
+    <button onclick="mlTools.control.setValue(`pause`, false)">Unpause</button>
+    <script>
+      document.onkeydown = (ev) => {
+        if (ev.key === "ArrowLeft") mlTools.control.setValue("action", 3);
+        if (ev.key === "ArrowRight") mlTools.control.setValue("action", 1);
+        if (ev.key === "ArrowDown") mlTools.control.setValue("action", 2);
+        if (ev.key === "ArrowUp") mlTools.control.setValue("action", 0);
+      };
+    </script>
+  </body>
+</html>
