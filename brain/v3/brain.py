@@ -1,4 +1,4 @@
-from os import path
+import os
 
 import tensorflow.keras
 from ml_tools import q_learning
@@ -7,7 +7,7 @@ keras = tensorflow.keras
 
 class Brain(q_learning.Brain):
   def __init__(self, learning_rate: float):
-    self.current_folder = path.dirname(__file__)
+    self.current_folder = os.path.dirname(__file__)
 
     self.learning_rate = learning_rate
 

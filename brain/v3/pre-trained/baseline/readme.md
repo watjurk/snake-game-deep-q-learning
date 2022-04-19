@@ -1,0 +1,1 @@
+This agent's model's conv layers parameters aren't learnable - only weights on dense layers are learnable.
