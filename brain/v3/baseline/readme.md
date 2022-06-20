@@ -1,1 +1,0 @@
-This agent isn't be pre-trained and all of its model's parameters are learnable.

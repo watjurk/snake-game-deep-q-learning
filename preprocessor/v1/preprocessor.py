@@ -22,7 +22,7 @@ class Preprocessor(q_learning.Preprocessor):
     self.last_observations = observation
 
     observation = cv2.resize(observation, dsize=(50, 50), interpolation=cv2.INTER_AREA)
-    self.ui.video.update_stream("preprocessed", observation)
+    # self.ui.video.update_stream("preprocessed", observation)
 
     observation = observation / 255.0
     return observation

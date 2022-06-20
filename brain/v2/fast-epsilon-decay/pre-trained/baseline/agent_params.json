@@ -1,0 +1,18 @@
+{
+  "action_space": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "epsilon_start": 1,
+  "epsilon_stop": 0.001,
+  "epsilon_decay_num_steps": 250,
+  "discount_factor": 0.97,
+  "replay_batch_size": 64,
+  "model_batch_size": 16,
+  "steps_to_train": 20,
+  "steps_to_update_target": 40,
+  "replay_memory_min_len": 2000,
+  "replay_memory_max_len": 50000
+}
