@@ -13,9 +13,9 @@ public - ten projekt ma interfejs web no może interfejs to za dużo powiedziane
 Yyyyym pliki:
 
 .gitignore - to Pani wie
-00*gather_pre-train-data.ipynb - dodałem do tego pre treaning kiedyś tam jak robiłem ten projekt i wygląda to tak że ja gram przez ten web interfejs (public/pre-train) i moje ruchy się zbierają i potem na tej podstawie uczyę model
+00_gather_pre-train-data.ipynb - dodałem do tego pre treaning kiedyś tam jak robiłem ten projekt i wygląda to tak że ja gram przez ten web interfejs (public/pre-train) i moje ruchy się zbierają i potem na tej podstawie uczyę model
 01_pre-train.ipynb - tutaj odbywa się to uczenie o którym była mowa krok wyżej, tutaj najbardziej jestem dumny z takiej jeden części (jest zaznaczone z której w kodzie) bo głupi tensorflow nie jest w stanie mi splitnąć danych jeśli dataset nie jest cały in memory :<
-02_train*\*.ipynb - uczenie modelu z użyciem deep-q-learnig no i w każdym z tych plików dzieje się to inaczej w sensie są inne parametry uczenia
+02_train_*.ipynb - uczenie modelu z użyciem deep-q-learnig no i w każdym z tych plików dzieje się to inaczej w sensie są inne parametry uczenia
 03_analyze.ipynb - w sumie to zrobiłem to tak żeby się pobawić bardziej, ale jakiś paper gdzieś kiedyś mówił że jak się robi pre-traning to potem model finalny ma podobne wagi do tego z pre-traning no i chciałem to sprawdzić i zrobiłem wizualizację kerneli w jednej tam warstwie convolutional,
 z tego algorytmu do rysowania tego też jestem dumny :>
 04_showcase.ipynb - odpalanie już nauczonego modelu
