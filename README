@@ -1,25 +1,25 @@
 Okay, postanowiłem trochę tutaj napisać żeby nie musiała Pani rozkminiać wszystkiego samemu, bo jak już mówiłem
 robiłem ten projekt sam dla siebie i za bardzo nie pisałem komentarzy.
-Z góry przepraszam za taki bardziej kolokfialny język, ale wydała się Pani taka dość luźna i no tak, do rzeczy:
+Z góry przepraszam za taki bardziej kolokwialny język, ale wydała się Pani taka dość luźna i no tak, do rzeczy:
 
 Opis folderów:
 
-brain - tutaj są wszystkie wersje modelów oraz parametry uczenia, ale ten v1 chyba nie działa bo patrze że to jest jeszcze stara struktura, więc w sumie to można go wywalić
+brain - tutaj są wszystkie wersje modeli oraz parametry uczenia, ale ten v1 chyba nie działa bo patrzę że to jest jeszcze stara struktura, więc w sumie to można go wywalić
 gym_snake - nie pisałem tego to jest przekopiowane z jakiegoś gh, po prostu byłem leniwy
-ml_tools - to jest ta moja biblioteka, tam jakość kodu jest na znośnym poziome bo kiedyś chce z tego zrobić pip-package, ale jeszcze nie teraz
-preprocessor - wszystkie wersje preprocessów, na razie jest jeden i więcej raczej nie będzie, preprocessor - chodzi o to że jak są raw pixele z gry to coś trzeba z tym zrobić żeby model ogarniał no i to jest właśnie preprocessor, zresztą Pani to wie
+ml_tools - to jest ta moja biblioteka, tam jakość kodu jest na znośnym poziomie bo kiedyś chce z tego zrobić pip-package, ale jeszcze nie teraz
+preprocessor - wszystkie wersje preprocessorów, na razie jest jeden i więcej raczej nie będzie, preprocessor - chodzi o to że jak są raw pixele z gry to coś trzeba z tym zrobić żeby model ogarniał no i to jest właśnie preprocessor, zresztą Pani to wie
 public - ten projekt ma interfejs web no może interfejs to za dużo powiedziane, po prostu stwierdziłem że taka forma UI będzie najlepsza
 
 Yyyyym pliki:
 
 .gitignore - to Pani wie
-00_gather_pre-train-data.ipynb - dodałem do tego pre treaning kiedyś tam jak robiłem ten projekt i wygląda to tak że ja gram przez ten web interfejs (public/pre-train) i moje ruchy się zbierają i potem na tej podstawie uczyę model
-01_pre-train.ipynb - tutaj odbywa się to uczenie o którym była mowa krok wyżej, tutaj najbardziej jestem dumny z takiej jeden części (jest zaznaczone z której w kodzie) bo głupi tensorflow nie jest w stanie mi splitnąć danych jeśli dataset nie jest cały in memory :<
+00_gather_pre-train-data.ipynb - dodałem do tego pre treaning kiedyś tam jak robiłem ten projekt i wygląda to tak że ja gram przez ten web interfejs (public/pre-train) i moje ruchy się zbierają i potem na tej podstawie model się uczy
+01_pre-train.ipynb - tutaj odbywa się to uczenie o którym była mowa krok wyżej, tutaj najbardziej jestem dumny z takiej jednej części (jest zaznaczone z której w kodzie) bo głupi tensorflow nie jest w stanie mi splitnąć danych jeśli dataset nie jest cały in memory :<
 02_train_*.ipynb - uczenie modelu z użyciem deep-q-learnig no i w każdym z tych plików dzieje się to inaczej w sensie są inne parametry uczenia
-03_analyze.ipynb - w sumie to zrobiłem to tak żeby się pobawić bardziej, ale jakiś paper gdzieś kiedyś mówił że jak się robi pre-traning to potem model finalny ma podobne wagi do tego z pre-traning no i chciałem to sprawdzić i zrobiłem wizualizację kerneli w jednej tam warstwie convolutional,
+03_analyze.ipynb - w sumie to zrobiłem to tak żeby się pobawić bardziej, ale jakiś paper gdzieś kiedyś mówił że jak się robi pre-training to potem model finalny ma podobne wagi do tego z pre-training no i chciałem to sprawdzić i zrobiłem wizualizację kerneli w jednej tam warstwie convolutional,
 z tego algorytmu do rysowania tego też jestem dumny :>
 04_showcase.ipynb - odpalanie już nauczonego modelu
-TODO - (nie wiem co napisać więc wkleje coś z wiki) - A task list (also called a to-do list or "things-to-do") is a list of tasks to be completed, such as chores or steps toward completing a project. It is an inventory tool which serves as an alternative or supplement to memory.
+TODO - (nie wiem co napisać więc wkleję coś z wiki) - A task list (also called a to-do list or "things-to-do") is a list of tasks to be completed, such as chores or steps toward completing a project. It is an inventory tool which serves as an alternative or supplement to memory.
 
 No i to by było w sumie na tyle z tych moich komentarzy, a jeszcze wróć:
 
@@ -29,7 +29,7 @@ No i to by było w sumie na tyle z tych moich komentarzy, a jeszcze wróć:
   - conda-forge
   - defaults
     dependencies:
-  - python=3.9 - 3.9 bo na inncyh to mi się wywalało jak puszczałem to na noc :<
+  - python=3.9 - 3.9 bo na innych to mi się wywalało jak puszczałem to na noc :<
   - jupyter
   - matplotlib
   - opencv
