@@ -1,3 +1,53 @@
+# English
+Okay, I decided to write a bit here so you don't have to figure everything out on your own, because as I said before, I did this project for myself and I didn't really write any comments.
+
+I apologize in advance for my colloquial language, but you seemed quite relaxed, let's get to the point.
+
+Folder description:
+
+brain - here are all versions of models and learning parameters, but this v1 probably doesn't work because it seems to be an old structure, so in the end it can be deleted
+gym_snake - I didn't write this, it's copied from some github, I was just lazy
+ml_tools - this is my library, the code quality is at a decent level because I want to make a pip-package out of it someday
+preprocessor - all versions of preprocessors, for now there is only one and probably won't be more, preprocessor - it's about when there are raw pixels from the game, something has to be done with it so that the model can handle it, and this is the preprocessor, you know it
+public - this project has a web interface, interface is too much to say, I just thought that this form of UI would be the best
+
+Yyyyy files:
+
+.gitignore - is a file that tells Git which files or directories to ignore when committing changes.
+00_gather_pre-train-data.ipynb - I added this pre-training at some point when I was working on this project and it looks like this: I play through this web interface (public/pre-train) and my moves are collected and then based on that I train the model.
+01_pre-train.ipynb - This is where the training mentioned above takes place, and I am most proud of one part of it (it's marked in the code) because the stupid tensorflow can't split the data if the dataset is not entirely in memory :<
+02_train_*.ipynb - training the model using deep-q-learning and in each of these files it happens differently in the sense that there are different training parameters
+03_analyze.ipynb - I actually did this just to play around more, but some paper somewhere said that if you do pre-training then the final model has similar weights to the one from pre-training and I wanted to check that and I made a visualization of the  kernels in one of the convolutional layers, and I am also proud of the algorithm for drawing that.
+04_showcase.ipynb - running the already trained model
+TODO - (I don't know what to write so I'll paste something from Wikipedia): A task list is a list of tasks to be completed, such as chores or steps toward completing a project. It is an inventory tool which serves as an alternative or supplement to memory.
+
+And that's about it for my comments, but not! wait:
+- conda env export --from-history
+  name: ml-python1.9
+  channels:
+  - conda-forge
+  - defaults
+    dependencies:
+  - python=3.9 - 3.9 because otherwise it crashed for me when I run it at night :<
+  - jupyter
+  - matplotlib
+  - opencv
+  - numpy
+  - gym
+  - tensorflow
+  - autopep8
+
+I had to check if it works on my own, so I'll paste this command for you:
+conda install python=3.9 jupyter matplotlib opencv numpy gym tensorflow autopep8.
+
+You'll also need this (probably): 
+python -m ipykernel install --user --name=envName 
+That should be enough to get it running, and you'll need to have golang installed because it's needed for the whole web interface https://go.dev/learn/. The procedure for running the showcase (I know you could figure it out yourself, but it's better to write it down):
+in this folder, run 'jupyter notebook' and open 04_showcase.ipynb. Then go to cell -> run all, and if everything works, you'll have a beautiful snake eating apples on localhost:8080. 
+
+Best regards, Wiktor - Creator of this thing.
+
+# Polish
 Okay, postanowiłem trochę tutaj napisać żeby nie musiała Pani rozkminiać wszystkiego samemu, bo jak już mówiłem
 robiłem ten projekt sam dla siebie i za bardzo nie pisałem komentarzy.
 Z góry przepraszam za taki bardziej kolokfialny język, ale wydała się Pani taka dość luźna i no tak, do rzeczy:
@@ -13,9 +63,9 @@ public - ten projekt ma interfejs web no może interfejs to za dużo powiedziane
 Yyyyym pliki:
 
 .gitignore - to Pani wie
-00*gather_pre-train-data.ipynb - dodałem do tego pre treaning kiedyś tam jak robiłem ten projekt i wygląda to tak że ja gram przez ten web interfejs (public/pre-train) i moje ruchy się zbierają i potem na tej podstawie uczyę model
+00_gather_pre-train-data.ipynb - dodałem do tego pre treaning kiedyś tam jak robiłem ten projekt i wygląda to tak że ja gram przez ten web interfejs (public/pre-train) i moje ruchy się zbierają i potem na tej podstawie uczyę model
 01_pre-train.ipynb - tutaj odbywa się to uczenie o którym była mowa krok wyżej, tutaj najbardziej jestem dumny z takiej jeden części (jest zaznaczone z której w kodzie) bo głupi tensorflow nie jest w stanie mi splitnąć danych jeśli dataset nie jest cały in memory :<
-02_train*\*.ipynb - uczenie modelu z użyciem deep-q-learnig no i w każdym z tych plików dzieje się to inaczej w sensie są inne parametry uczenia
+02_train_*.ipynb - uczenie modelu z użyciem deep-q-learnig no i w każdym z tych plików dzieje się to inaczej w sensie są inne parametry uczenia
 03_analyze.ipynb - w sumie to zrobiłem to tak żeby się pobawić bardziej, ale jakiś paper gdzieś kiedyś mówił że jak się robi pre-traning to potem model finalny ma podobne wagi do tego z pre-traning no i chciałem to sprawdzić i zrobiłem wizualizację kerneli w jednej tam warstwie convolutional,
 z tego algorytmu do rysowania tego też jestem dumny :>
 04_showcase.ipynb - odpalanie już nauczonego modelu
