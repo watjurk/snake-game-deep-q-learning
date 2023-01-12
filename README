@@ -38,7 +38,7 @@ And that's about it for my comments, but not! wait:
   - autopep8
 
 I had to check if it works on my own, so I'll paste this command for you:
-conda install python=3.9 jupyter matplotlib opencv numpy gym tensorflow autopep8.
+conda install python=3.9 jupyter matplotlib opencv numpy=1.23.0 gym tensorflow autopep8
 
 You'll also need this (probably): 
 python -m ipykernel install --user --name=envName 
@@ -83,13 +83,13 @@ No i to by było w sumie na tyle z tych moich komentarzy, a jeszcze wróć:
   - jupyter
   - matplotlib
   - opencv
-  - numpy
+  - numpy=1.23.0
   - gym
   - tensorflow
   - autopep8
 
 sam musiałem sprawdzić czy to działa także już Pani wkleję tą komendę:
-conda install python=3.9 jupyter matplotlib opencv numpy gym tensorflow autopep8
+conda install python=3.9 jupyter matplotlib opencv numpy=1.23.0 gym tensorflow autopep8
 tego też będzie Pani potrzebować (chyba):
 python -m ipykernel install --user --name=envName
 
