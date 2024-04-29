@@ -1,59 +1,46 @@
 import cv2
+import gym
+import gym_snake
 import numpy as np
 import torch
 
-print("Hello world!")
-print("Torch version:", torch.__version__)
+SNAKE_WINDOW_NAME = "snake"
+SNAKE_ACTION_UP = 0
+SNAKE_ACTION_RIGHT = 1
+SNAKE_ACTION_DOWN = 2
+SNAKE_ACTION_LEFT = 3
 
-print("Torch default device:", torch.get_default_device())
-print("Torch mps available:", torch.backends.mps.is_available())
-print("Torch cuda available:", torch.cuda.is_available())
-
-
-def nothing(x):
-    pass
+WAIT_KEY_TIME_SECONDS = 2
 
 
-# Create a black image, a window
-img = np.zeros((200, 200, 3), np.uint8)
-cv2.namedWindow("image")
+cv2.namedWindow(SNAKE_WINDOW_NAME)
 
-cv2.createTrackbar("R", "image", 0, 255, nothing)
-cv2.createTrackbar("G", "image", 0, 255, nothing)
-cv2.createTrackbar("B", "image", 0, 255, nothing)
-
+env = gym.make("snake-v0")
+observation = env.reset()
 
 while True:
-    cv2.imshow("image", img)
-
-    k = cv2.waitKey(1) & 0xFF
-    if k == 27:
+    keyPressed = cv2.waitKey(WAIT_KEY_TIME_SECONDS * 1000) & 0xFF
+    if keyPressed == ord("q"):
         break
 
-    r = cv2.getTrackbarPos("R", "image")
-    g = cv2.getTrackbarPos("G", "image")
-    b = cv2.getTrackbarPos("B", "image")
+    action = None
+    if keyPressed == ord("w"):
+        action = SNAKE_ACTION_UP
 
-    print(r, g, b)
+    if keyPressed == ord("s"):
+        action = SNAKE_ACTION_DOWN
 
-    img[:] = [b, g, r]
+    if keyPressed == ord("a"):
+        action = SNAKE_ACTION_LEFT
+
+    if keyPressed == ord("d"):
+        action = SNAKE_ACTION_RIGHT
+
+    if action is None:
+        continue
+
+    (observation, reward, terminated, info) = env.step(action)
+    cv2.imshow(SNAKE_WINDOW_NAME, observation)
+
 
 cv2.destroyAllWindows()
-
-import gym
-import gym_snake
-
-# Construct Environment
-env = gym.make("snake-v0")
-observation = env.reset()  # Constructs an instance of the game
-
-# Controller
-game_controller = env.controller
-
-# Grid
-grid_object = game_controller.grid
-grid_pixels = grid_object.grid
-
-# Snake(s)
-snakes_array = game_controller.snakes
-snake_object1 = snakes_array[0]
