@@ -1,13 +1,18 @@
-import os, subprocess, time, signal
-import numpy as np
+import os
+import signal
+import subprocess
+import time
+
 import gym
+import numpy as np
 from gym import error, spaces, utils
 from gym.utils import seeding
+
 from gym_snake.envs.snake import Controller, Discrete
 
 try:
-    import matplotlib.pyplot as plt
     import matplotlib
+    import matplotlib.pyplot as plt
 except ImportError as e:
     raise error.DependencyNotInstalled("{}. (HINT: see matplotlib documentation for installation https://matplotlib.org/faq/installing_faq.html#installation".format(e))
 

@@ -8,8 +8,20 @@ from agent import Agent, SnakeDirection
 class HumanAgent(Agent):
     def get_action(self, observation: np.array) -> SnakeDirection:
         raise RuntimeError(
-            "HumanAgent cannot infer action from raw observation. Use get_action_from_keypress."
+            "get_action called on HumanAgent. Use get_action_from_keypress."
         )
+
+    def step(
+        self,
+        observation_s1: np.array,
+        action_s1: SnakeDirection,
+        reward_s2: float,
+        observation_s2: np.array,
+    ) -> None:
+        pass
+
+    def reset(self) -> None:
+        pass
 
     def get_action_from_keypress(self, keyPressed: int) -> Optional[SnakeDirection]:
         action = None

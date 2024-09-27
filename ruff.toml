@@ -1,0 +1,2 @@
+line-length = 200       # defaults to 88 like black
+target-version = "py39" # the python version to target, useful when considering code upgrades, defaults to "py310"
